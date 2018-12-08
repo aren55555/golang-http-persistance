@@ -1,0 +1,10 @@
+version: '3'
+services:
+  webapp:
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+  redis:
+    image: redis:5
+  postgres:
+    image: postgres:11
