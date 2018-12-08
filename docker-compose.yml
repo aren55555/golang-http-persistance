@@ -4,7 +4,18 @@ services:
     build:
       context: ./webapp
       dockerfile: Dockerfile
+    links:
+      - "redis"
+      - "postgres"
+    ports:
+      - "8080:8080"
   redis:
     image: redis:5
+    ports:
+      - "6379"
   postgres:
     image: postgres:11
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_PASSWORD: hockey
